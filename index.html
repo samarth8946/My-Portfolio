@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Samarth Pandey — Computer Applications Student</title>
+<meta name="description" content="Portfolio of Samarth Pandey, a Computer Applications student at KIIT School of Computer Applications, exploring AI/ML, Cloud Computing and full-stack development.">
+
+<meta property="og:title" content="Samarth Pandey — Computer Applications Student">
+<meta property="og:description" content="Portfolio of Samarth Pandey, a Computer Applications student at KIIT School of Computer Applications, exploring AI/ML, Cloud Computing and full-stack development.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://api.dicebear.com/7.x/initials/svg?seed=Samarth%20Pandey&backgroundColor=E3A64F">
+
+<link rel="icon" href="https://api.dicebear.com/7.x/initials/svg?seed=Samarth%20Pandey&backgroundColor=E3A64F">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&amp;family=IBM+Plex+Sans:wght@400;500;600;700&amp;family=Space+Grotesk:wght@500;600;700&amp;display=swap" rel="stylesheet">
+
+<style>
+  /* ============ Tokens ============ */
+  :root{
+    --bg:#0B0E14;
+    --surface:#131826;
+    --surface-2:#1A2233;
+    --border:#262F42;
+    --text:#EDF1F7;
+    --text-muted:#8D96A8;
+
+    --accent:#E3A64F;        /* roast amber — primary */
+    --accent-strong:#F2BB68;
+    --accent-2:#7BC49A;      /* muted spring green — secondary */
+
+    --dot-html:#E3A64F;
+    --dot-js:#E8C468;
+    --dot-json:#7BC49A;
+    --dot-md:#6FA8DC;
+
+    --radius-sm:8px;
+    --radius-md:14px;
+    --radius-lg:22px;
+
+    --shadow:0 20px 60px -25px rgba(0,0,0,0.65);
+
+    --font-display:'Space Grotesk', sans-serif;
+    --font-body:'IBM Plex Sans', sans-serif;
+    --font-mono:'IBM Plex Mono', monospace;
+  }
+
+  /* ============ Reset & base ============ */
+  *,*::before,*::after{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--text);
+    font-family:var(--font-body);
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+    position:relative;
+    overflow-x:hidden;
+  }
+  body::before{
+    content:"";
+    position:fixed;
+    inset:0;
+    background-image:radial-gradient(circle at 1px 1px, rgba(255,255,255,0.05) 1px, transparent 0);
+    background-size:26px 26px;
+    pointer-events:none;
+    z-index:0;
+  }
+  img{max-width:100%;display:block;}
+  a{color:inherit;}
+  ul{margin:0;}
+  h1,h2,h3{font-family:var(--font-display);margin:0 0 .6rem;line-height:1.15;letter-spacing:-0.01em;}
+  main,header,footer{position:relative;z-index:1;}
+  section{scroll-margin-top:88px;}
+
+  a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{
+    outline:2px solid var(--accent);
+    outline-offset:3px;
+    border-radius:4px;
+  }
+
+  /* ============ Shared layout ============ */
+  .section{padding:6rem 0;}
+  .section-inner{max-width:1120px;margin:0 auto;padding:0 clamp(1.25rem,5vw,3rem);}
+  .section-alt{background:rgba(255,255,255,0.015);border-top:1px solid var(--border);border-bottom:1px solid var(--border);}
+  .eyebrow{font-family:var(--font-mono);font-size:.8rem;color:var(--accent);letter-spacing:.06em;margin:0 0 .6rem;}
+  .section h2{font-size:clamp(1.7rem,4vw,2.4rem);}
+  .section-lede{color:var(--text-muted);max-width:560px;margin:.4rem 0 0;font-size:1rem;}
+
+  @media(max-width:640px){.section{padding:4rem 0;}}
+
+  [data-reveal]{opacity:0;transform:translateY(18px);transition:opacity .6s ease, transform .6s ease;}
+  [data-reveal].in-view{opacity:1;transform:translateY(0);}
+  @media(prefers-reduced-motion:reduce){
+    html{scroll-behavior:auto;}
+    [data-reveal]{opacity:1;transform:none;transition:none;}
+  }
+
+  /* ============ Header / tab nav ============ */
+  .site-header{
+    position:sticky;top:0;z-index:50;
+    background:rgba(11,14,20,0.82);
+    backdrop-filter:blur(10px);
+    -webkit-backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--border);
+  }
+  .header-inner{
+    max-width:1120px;margin:0 auto;padding:0 clamp(1.25rem,5vw,3rem);
+    height:72px;display:flex;align-items:center;justify-content:space-between;gap:1.5rem;
+  }
+  .brand{display:flex;align-items:center;gap:.6rem;text-decoration:none;color:var(--text);font-family:var(--font-mono);font-weight:500;font-size:.95rem;flex-shrink:0;}
+  .brand-avatar{width:32px;height:32px;border-radius:50%;object-fit:cover;border:2px solid var(--accent);}
+  .brand-accent{color:var(--accent);}
+
+  .tabs{display:flex;gap:.15rem;overflow-x:auto;scrollbar-width:none;-ms-overflow-style:none;height:100%;}
+  .tabs::-webkit-scrollbar{display:none;}
+  .tab{
+    display:flex;align-items:center;gap:.45rem;white-space:nowrap;
+    font-family:var(--font-mono);font-size:.82rem;color:var(--text-muted);
+    text-decoration:none;padding:0 .9rem;height:72px;
+    border-top:2px solid transparent;
+    transition:color .2s ease, border-color .2s ease, background-color .2s ease;
+  }
+  .tab:hover{color:var(--text);background:rgba(255,255,255,.03);}
+  .tab.active{color:var(--text);border-top-color:var(--accent);background:rgba(255,255,255,.03);}
+  .tab .dot{width:7px;height:7px;border-radius:50%;flex-shrink:0;}
+  .dot-html{background:var(--dot-html);}
+  .dot-js{background:var(--dot-js);}
+  .dot-json{background:var(--dot-json);}
+  .dot-md{background:var(--dot-md);}
+
+  /* ============ Hero ============ */
+  .hero{position:relative;padding:4.5rem 0 6rem;overflow:hidden;}
+  .hero-bg{
+    position:absolute;top:-160px;left:50%;transform:translateX(-50%);
+    width:900px;height:900px;
+    background:radial-gradient(circle, rgba(227,166,79,0.16), transparent 60%);
+    pointer-events:none;z-index:0;
+  }
+  .hero-inner{
+    position:relative;z-index:1;
+    max-width:1120px;margin:0 auto;padding:0 clamp(1.25rem,5vw,3rem);
+    display:grid;grid-template-columns:1.1fr .9fr;gap:3rem;align-items:center;
+  }
+  @media(max-width:900px){.hero-inner{grid-template-columns:1fr;}}
+
+  .terminal{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-md);overflow:hidden;box-shadow:var(--shadow);max-width:460px;}
+  .terminal-bar{display:flex;align-items:center;gap:.4rem;padding:.6rem .9rem;background:var(--surface-2);border-bottom:1px solid var(--border);}
+  .terminal-bar span{width:10px;height:10px;border-radius:50%;display:inline-block;}
+  .terminal-bar span:nth-child(1){background:#F0605A;}
+  .terminal-bar span:nth-child(2){background:#F2C14E;}
+  .terminal-bar span:nth-child(3){background:#3FC969;}
+  .terminal-bar p{margin:0 0 0 .5rem;font-family:var(--font-mono);font-size:.72rem;color:var(--text-muted);}
+  .terminal-body{padding:1.1rem 1.2rem 1.4rem;font-family:var(--font-mono);font-size:.85rem;line-height:2;}
+  .terminal-line{display:block;white-space:pre-wrap;word-break:break-word;}
+  .terminal-line.cmd{color:var(--text-muted);}
+  .terminal-line.cmd::before{content:"$ ";color:var(--accent);}
+  .terminal-line.output{color:var(--text);}
+  .cursor{display:inline-block;width:8px;height:1em;background:var(--accent);margin-left:2px;vertical-align:-2px;animation:blink 1s steps(1) infinite;}
+  @keyframes blink{50%{opacity:0;}}
+  @media(prefers-reduced-motion:reduce){.cursor{animation:none;}}
+
+  .hero-name{font-size:clamp(2.3rem,5.5vw,3.6rem);margin-top:1.5rem;}
+  .hero-name span{color:var(--accent);}
+  .hero-role{font-family:var(--font-mono);color:var(--accent-2);font-size:1.05rem;margin:0 0 1.2rem;}
+  .hero-bio{color:var(--text-muted);max-width:520px;font-size:1rem;line-height:1.75;margin:0 0 1.4rem;}
+
+  .badge-row{display:flex;flex-wrap:wrap;gap:.6rem;list-style:none;padding:0;margin:0 0 1.8rem;}
+  .badge-row li{font-family:var(--font-mono);font-size:.78rem;color:var(--text-muted);background:var(--surface);border:1px solid var(--border);padding:.45rem .8rem;border-radius:999px;}
+
+  .hero-cta{display:flex;flex-wrap:wrap;align-items:center;gap:.9rem;}
+  .btn{display:inline-flex;align-items:center;gap:.4rem;padding:.85rem 1.4rem;border-radius:999px;font-family:var(--font-mono);font-size:.85rem;font-weight:500;text-decoration:none;border:1px solid transparent;cursor:pointer;transition:transform .15s ease, background-color .15s ease, border-color .15s ease, color .15s ease;}
+  .btn-primary{background:var(--accent);color:#181206;border-color:var(--accent);}
+  .btn-primary:hover{background:var(--accent-strong);transform:translateY(-2px);}
+  .btn-ghost{background:transparent;color:var(--text);border-color:var(--border);}
+  .btn-ghost:hover{border-color:var(--accent);color:var(--accent);transform:translateY(-2px);}
+  .btn-text{background:transparent;color:var(--accent);padding:.85rem .2rem;}
+  .btn-text:hover{text-decoration:underline;}
+
+  .hero-visual{position:relative;justify-self:center;}
+  .visual-frame{width:min(100%,340px);border-radius:var(--radius-lg);overflow:hidden;border:1px solid var(--border);background:var(--surface);box-shadow:var(--shadow);}
+  .visual-frame img{width:100%;height:auto;}
+  .chip{position:absolute;font-family:var(--font-mono);font-size:.78rem;background:var(--surface);border:1px solid var(--border);padding:.5rem .8rem;border-radius:999px;box-shadow:var(--shadow);}
+  .chip-1{top:6%;left:-8%;}
+  .chip-2{bottom:12%;right:-8%;color:var(--accent-2);}
+  .chip-3{top:46%;right:-12%;color:var(--accent);}
+  @media(max-width:560px){.chip{display:none;}}
+  @media(prefers-reduced-motion:no-preference){
+    .chip-1{animation:float 5s ease-in-out infinite;}
+    .chip-2{animation:float 6s ease-in-out infinite 1s;}
+    .chip-3{animation:float 5.5s ease-in-out infinite .5s;}
+  }
+  @keyframes float{0%,100%{transform:translateY(0);}50%{transform:translateY(-10px);}}
+
+  /* ============ Skills ============ */
+  .skills-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2.2rem;margin-top:2.6rem;}
+  @media(max-width:860px){.skills-grid{grid-template-columns:1fr;}}
+  .group-label{font-family:var(--font-mono);font-size:.75rem;letter-spacing:.08em;text-transform:uppercase;color:var(--accent-2);margin:0 0 1rem;}
+  .skill-list{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:.7rem;}
+  .skill-card{display:flex;gap:.8rem;align-items:flex-start;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-sm);padding:.85rem .9rem;transition:border-color .2s ease, transform .2s ease;}
+  .skill-card:hover{border-color:var(--accent);transform:translateY(-2px);}
+  .skill-icon{font-size:1.15rem;line-height:1.3;}
+  .skill-name{margin:0 0 .15rem;font-family:var(--font-display);font-weight:600;font-size:.95rem;}
+  .skill-desc{margin:0;font-size:.8rem;color:var(--text-muted);line-height:1.5;}
+
+  /* ============ Projects ============ */
+  .projects-grid{display:grid;grid-template-columns:1fr;gap:1.4rem;margin-top:2.6rem;}
+  @media(min-width:760px){.projects-grid{grid-template-columns:1fr 1fr;}}
+  .project-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-md);padding:1.6rem;display:flex;flex-direction:column;gap:.85rem;transition:border-color .2s ease, transform .2s ease, box-shadow .2s ease;}
+  .project-card:hover{border-color:var(--accent);transform:translateY(-3px);box-shadow:var(--shadow);}
+  .project-card.featured{grid-column:1/-1;}
+  .project-top{display:flex;align-items:center;justify-content:space-between;gap:.75rem;flex-wrap:wrap;}
+  .project-icon{font-size:1.5rem;}
+  .project-links{display:flex;align-items:center;gap:.9rem;font-family:var(--font-mono);font-size:.78rem;}
+  .project-links a{color:var(--accent-2);text-decoration:none;}
+  .project-links a:hover{text-decoration:underline;}
+  .project-tag-note{color:var(--text-muted);}
+  .project-card h3{margin:0;font-family:var(--font-display);font-size:1.25rem;}
+  .project-card p{margin:0;color:var(--text-muted);font-size:.92rem;line-height:1.65;}
+  .tag-list{list-style:none;display:flex;flex-wrap:wrap;gap:.5rem;padding:0;margin:.3rem 0 0;}
+  .tag-list li{font-family:var(--font-mono);font-size:.72rem;color:var(--text);background:var(--surface-2);border:1px solid var(--border);padding:.3rem .6rem;border-radius:6px;}
+
+  /* ============ Contact ============ */
+  .contact-grid{display:grid;grid-template-columns:1fr;gap:2.6rem;margin-top:2.6rem;}
+  @media(min-width:820px){.contact-grid{grid-template-columns:1fr 1fr;}}
+  .contact-row{display:flex;justify-content:space-between;align-items:center;gap:1rem;padding:1rem 0;border-bottom:1px solid var(--border);text-decoration:none;color:var(--text);font-family:var(--font-mono);font-size:.88rem;}
+  .contact-info>.contact-row:last-child{border-bottom:none;}
+  .contact-label{color:var(--text-muted);flex-shrink:0;}
+  .contact-value{color:var(--text);text-align:right;word-break:break-word;}
+  a.contact-row:hover .contact-value{color:var(--accent);}
+  .copy-btn{margin:.6rem 0 0;background:none;border:1px solid var(--border);color:var(--text-muted);font-family:var(--font-mono);font-size:.75rem;padding:.4rem .7rem;border-radius:6px;cursor:pointer;transition:border-color .2s ease, color .2s ease;}
+  .copy-btn:hover{border-color:var(--accent);color:var(--accent);}
+  .copy-btn.copied{border-color:var(--accent-2);color:var(--accent-2);}
+
+  .contact-form{display:flex;flex-direction:column;gap:1rem;}
+  .contact-form label{display:flex;flex-direction:column;gap:.4rem;font-family:var(--font-mono);font-size:.78rem;color:var(--text-muted);}
+  .contact-form input,.contact-form textarea{font-family:var(--font-body);font-size:.92rem;color:var(--text);background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:.7rem .8rem;resize:vertical;}
+  .contact-form input:focus,.contact-form textarea:focus{outline:none;border-color:var(--accent);}
+  .form-note{margin:0;font-size:.75rem;color:var(--text-muted);}
+
+  /* ============ Footer ============ */
+  .site-footer{padding:2.5rem clamp(1.25rem,5vw,3rem) 3rem;display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:1rem;font-family:var(--font-mono);font-size:.78rem;color:var(--text-muted);border-top:1px solid var(--border);}
+  .back-to-top{
+    position:fixed;right:1.5rem;bottom:1.5rem;width:42px;height:42px;border-radius:50%;
+    background:var(--surface);border:1px solid var(--border);color:var(--text);
+    display:flex;align-items:center;justify-content:center;
+    opacity:0;pointer-events:none;transform:translateY(8px);
+    transition:opacity .25s ease, transform .25s ease, border-color .2s ease, color .2s ease;
+    cursor:pointer;font-size:1.1rem;z-index:40;
+  }
+  .back-to-top.visible{opacity:1;pointer-events:auto;transform:translateY(0);}
+  .back-to-top:hover{border-color:var(--accent);color:var(--accent);}
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+    <a href="#home" class="brand">
+      <img class="brand-avatar" src="https://api.dicebear.com/7.x/initials/svg?seed=Samarth%20Pandey&backgroundColor=E3A64F" alt="Samarth Pandey">
+      <span>Samarth<span class="brand-accent">.dev</span></span>
+    </a>
+    <nav class="tabs" id="primary-nav" aria-label="Primary">
+      <a href="#home" class="tab active" data-section="home"><span class="dot dot-html"></span>index.html</a>
+      <a href="#skills" class="tab" data-section="skills"><span class="dot dot-js"></span>skills.js</a>
+      <a href="#projects" class="tab" data-section="projects"><span class="dot dot-json"></span>activity.json</a>
+      <a href="#education" class="tab" data-section="education"><span class="dot dot-json"></span>education.json</a>
+      <a href="#contact" class="tab" data-section="contact"><span class="dot dot-md"></span>contact.md</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+  <!-- ============ HERO ============ -->
+  <section class="hero" id="home">
+    <div class="hero-bg" aria-hidden="true"></div>
+    <div class="hero-inner">
+      <div class="hero-text">
+        <div class="terminal" aria-hidden="true">
+          <div class="terminal-bar">
+            <span></span><span></span><span></span>
+            <p>bash — samarth@kiit-sca</p>
+          </div>
+          <div class="terminal-body">
+            <span class="terminal-line cmd" data-type>whoami</span>
+            <span class="terminal-line output" data-type>Samarth Pandey — Computer Applications Student</span>
+            <span class="terminal-line cmd" data-type>cat status.txt</span>
+            <span class="terminal-line output" data-type>Exploring AI/ML, Cloud &amp; Full-Stack Dev 🚀<span class="cursor"></span></span>
+          </div>
+        </div>
+
+        <h1 class="hero-name">Samarth  <span>Pandey</span></h1>
+        <p class="hero-role">Computer Applications Student · KIIT SCA</p>
+        <p class="hero-bio">
+          Bachelor's student in Computer Applications at KIIT School of Computer Applications,
+          Bhubaneswar (originally from Jamshedpur, Jharkhand). Curious about Artificial
+          Intelligence, Machine Learning and Cloud Computing, and building a foundation in
+          software development along the way.
+        </p>
+
+        <ul class="badge-row">
+          <li>🎓 KIIT SCA Student</li>
+          <li>🤖 AI/ML Enthusiast</li>
+          <li>☁️ Cloud Computing</li>
+          <li>📚 CS Fundamentals</li>
+        </ul>
+
+        <div class="hero-cta">
+          <a href="#education" class="btn btn-primary">View Education</a>
+          <a href="https://www.linkedin.com/in/samarth-pandey-344172377/" class="btn btn-ghost" target="_blank" rel="noopener">View LinkedIn ↗</a>
+          <a href="#contact" class="btn btn-text">Contact me →</a>
+        </div>
+      </div>
+
+      <div class="hero-visual">
+        <div class="visual-frame">
+          <img src="https://api.dicebear.com/7.x/initials/svg?seed=Samarth%20Pandey&backgroundColor=E3A64F&fontSize=38" alt="Samarth Pandey">
+        </div>
+        <span class="chip chip-1">🤖 AI/ML</span>
+        <span class="chip chip-2">☁️ Cloud</span>
+        <span class="chip chip-3">&lt;/&gt;</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ SKILLS ============ -->
+  <section class="section" id="skills">
+    <div class="section-inner" data-reveal>
+      <p class="eyebrow">// skills.js</p>
+      <h2>Skills &amp; Interests</h2>
+      <p class="section-lede">Areas I'm building foundations in as a Computer Applications student.</p>
+
+      <div class="skills-grid">
+        <div class="skill-group">
+          <h3 class="group-label">AI, ML &amp; Cloud</h3>
+          <ul class="skill-list">
+            <li class="skill-card">
+              <span class="skill-icon">🤖</span>
+              <div><p class="skill-name">Artificial Intelligence</p><p class="skill-desc">Core concepts and practical applications</p></div>
+            </li>
+            <li class="skill-card">
+              <span class="skill-icon">🧠</span>
+              <div><p class="skill-name">Machine Learning</p><p class="skill-desc">Fundamentals through hands-on workshops</p></div>
+            </li>
+            <li class="skill-card">
+              <span class="skill-icon">☁️</span>
+              <div><p class="skill-name">Cloud Computing</p><p class="skill-desc">Introductory concepts and use cases</p></div>
+            </li>
+          </ul>
+        </div>
+
+        <div class="skill-group">
+          <h3 class="group-label">Programming Foundations</h3>
+          <ul class="skill-list">
+            <li class="skill-card">
+              <span class="skill-icon">💻</span>
+              <div><p class="skill-name">Computer Applications</p><p class="skill-desc">Core coursework at KIIT SCA</p></div>
+            </li>
+            <li class="skill-card">
+              <span class="skill-icon">🔢</span>
+              <div><p class="skill-name">Science Foundations</p><p class="skill-desc">CBSE Science stream background</p></div>
+            </li>
+          </ul>
+        </div>
+
+        <div class="skill-group">
+          <h3 class="group-label">Community &amp; Growth</h3>
+          <ul class="skill-list">
+            <li class="skill-card">
+              <span class="skill-icon">🧑‍💻</span>
+              <div><p class="skill-name">K(Devs) Coding Club</p><p class="skill-desc">Active in KIIT SCA's coding community</p></div>
+            </li>
+            <li class="skill-card">
+              <span class="skill-icon">📚</span>
+              <div><p class="skill-name">Continuous Learning</p><p class="skill-desc">Workshops, certifications and self-study</p></div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ ACTIVITY / CERTIFICATIONS ============ -->
+  <section class="section section-alt" id="projects">
+    <div class="section-inner" data-reveal>
+      <p class="eyebrow">// activity.json</p>
+      <h2>Certifications &amp; Activity</h2>
+      <p class="section-lede">Workshops, credentials and community involvement so far.</p>
+
+      <div class="projects-grid">
+        <article class="project-card featured">
+          <div class="project-top">
+            <span class="project-icon">🤖</span>
+            <div class="project-links">
+              <span class="project-tag-note">Issued Aug 2026</span>
+            </div>
+          </div>
+          <h3>AI/ML Workshop with Cloud Computing</h3>
+          <p>Participated in the AI/ML Workshop with Cloud Computing organized by the K(Devs) Coding Club, School of Computer Applications, KIIT University, Bhubaneswar — covering practical applications of Artificial Intelligence, Machine Learning and Cloud Computing.</p>
+          <ul class="tag-list"><li>Artificial Intelligence</li><li>Machine Learning</li><li>Cloud Computing</li></ul>
+        </article>
+
+        <article class="project-card">
+          <div class="project-top">
+            <span class="project-icon">🧑‍💻</span>
+            <div class="project-links">
+              <span class="project-tag-note">Active member</span>
+            </div>
+          </div>
+          <h3>K(Devs) Coding Club</h3>
+          <p>Active member of the Coding Club at KIIT School of Computer Applications, taking part in workshops and technical events on campus.</p>
+          <ul class="tag-list"><li>Community</li><li>KIIT SCA</li></ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ EDUCATION ============ -->
+  <section class="section" id="education">
+    <div class="section-inner" data-reveal>
+      <p class="eyebrow">// education.json</p>
+      <h2>Education</h2>
+      <p class="section-lede">Academic background so far.</p>
+
+      <div class="projects-grid">
+        <article class="project-card featured">
+          <div class="project-top">
+            <span class="project-icon">🎓</span>
+            <div class="project-links">
+              <span class="project-tag-note">2025 – 2028</span>
+            </div>
+          </div>
+          <h3>KIIT School of Computer Applications</h3>
+          <p>Bachelor's degree, Computer Applications. Based in Bhubaneswar, Odisha, India.</p>
+          <ul class="tag-list"><li>Computer Applications</li><li>Bachelor's Degree</li></ul>
+        </article>
+
+        <article class="project-card">
+          <div class="project-top">
+            <span class="project-icon">🏫</span>
+            <div class="project-links">
+              <span class="project-tag-note">Mar 2023 – Mar 2025</span>
+            </div>
+          </div>
+          <h3>Valley View School</h3>
+          <p>Senior Secondary, Science Stream (CBSE).</p>
+          <ul class="tag-list"><li>CBSE</li><li>Science Stream</li></ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CONTACT ============ -->
+  <section class="section" id="contact">
+    <div class="section-inner" data-reveal>
+      <p class="eyebrow">// contact.md</p>
+      <h2>Let's connect</h2>
+      <p class="section-lede">Open to internships, learning opportunities, and connecting with fellow builders.</p>
+
+      <div class="contact-grid">
+        <div class="contact-info">
+          <a class="contact-row" href="mailto:your-email@example.com">
+            <span class="contact-label">Email</span>
+            <span class="contact-value">your-email@example.com</span>
+          </a>
+          <a class="contact-row" href="https://www.linkedin.com/in/samarth-pandey-344172377/" target="_blank" rel="noopener">
+            <span class="contact-label">LinkedIn</span>
+            <span class="contact-value">Samarth Pandey ↗</span>
+          </a>
+          <div class="contact-row">
+            <span class="contact-label">Location</span>
+            <span class="contact-value">Jamshedpur, Jharkhand, India</span>
+          </div>
+          <button class="copy-btn" id="copyEmail" type="button">Copy email</button>
+        </div>
+
+        <form class="contact-form" id="contactForm">
+          <label>Name
+            <input type="text" name="name" required>
+          </label>
+          <label>Email
+            <input type="email" name="email" required>
+          </label>
+          <label>Message
+            <textarea name="message" rows="4" required></textarea>
+          </label>
+          <button type="submit" class="btn btn-primary">Send message</button>
+          <p class="form-note">Opens your email app with this filled in.</p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <p>console.log("Thanks for stopping by 🚀"); // <span id="year"></span> Samarth Pandey</p>
+</footer>
+
+<button class="back-to-top" id="backToTop" aria-label="Back to top">↑</button>
+
+<script>
+(function () {
+  /* ---------- Footer year ---------- */
+  var yearEl = document.getElementById('year');
+  if (yearEl) yearEl.textContent = new Date().getFullYear();
+
+  /* ---------- Reduced motion check ---------- */
+  var prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* ---------- Terminal typing effect ---------- */
+  var terminalLines = document.querySelectorAll('.terminal-line[data-type]');
+  if (terminalLines.length && !prefersReducedMotion) {
+    terminalLines.forEach(function (line, i) {
+      var full = line.textContent;
+      line.textContent = '';
+      var delayBefore = i * 650;
+      setTimeout(function () {
+        var idx = 0;
+        var speed = 26;
+        function typeChar() {
+          if (idx <= full.length) {
+            line.textContent = full.slice(0, idx);
+            idx++;
+            setTimeout(typeChar, speed);
+          }
+        }
+        typeChar();
+      }, delayBefore);
+    });
+  }
+
+  /* ---------- In-page hash links: scroll manually instead of default jump ---------- */
+  /* (default hash navigation can be blocked/mis-handled inside sandboxed preview frames) */
+  document.querySelectorAll('a[href^="#"]').forEach(function (link) {
+    link.addEventListener('click', function (e) {
+      var id = link.getAttribute('href').slice(1);
+      var target = id ? document.getElementById(id) : null;
+      if (!target) return; // let default happen (e.g. bare "#")
+      e.preventDefault();
+      target.scrollIntoView({
+        behavior: prefersReducedMotion ? 'auto' : 'smooth',
+        block: 'start'
+      });
+      if (history.pushState) {
+        history.pushState(null, '', '#' + id);
+      }
+      document.querySelectorAll('.tab').forEach(function (tab) {
+        tab.classList.toggle('active', tab.dataset.section === id);
+      });
+    });
+  });
+
+  /* ---------- Scroll reveal ---------- */
+  var revealEls = document.querySelectorAll('[data-reveal]');
+  if ('IntersectionObserver' in window && !prefersReducedMotion) {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in-view');
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15 });
+    revealEls.forEach(function (el) { io.observe(el); });
+  } else {
+    revealEls.forEach(function (el) { el.classList.add('in-view'); });
+  }
+
+  /* ---------- Active tab on scroll ---------- */
+  var sections = document.querySelectorAll('main section[id]');
+  var tabs = document.querySelectorAll('.tab');
+  if ('IntersectionObserver' in window && sections.length) {
+    var navObserver = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          var id = entry.target.getAttribute('id');
+          tabs.forEach(function (tab) {
+            tab.classList.toggle('active', tab.dataset.section === id);
+          });
+        }
+      });
+    }, { rootMargin: '-45% 0px -50% 0px', threshold: 0 });
+    sections.forEach(function (sec) { navObserver.observe(sec); });
+  }
+
+  /* ---------- Copy email ---------- */
+  var copyBtn = document.getElementById('copyEmail');
+  if (copyBtn) {
+    copyBtn.addEventListener('click', function () {
+      var email = 'your-email@example.com';
+      function fallback() {
+        var ta = document.createElement('textarea');
+        ta.value = email;
+        ta.style.position = 'fixed';
+        ta.style.opacity = '0';
+        document.body.appendChild(ta);
+        ta.select();
+        try { document.execCommand('copy'); } catch (e) {}
+        document.body.removeChild(ta);
+      }
+      var done = function () {
+        var original = 'Copy email';
+        copyBtn.textContent = 'Copied ✓';
+        copyBtn.classList.add('copied');
+        setTimeout(function () {
+          copyBtn.textContent = original;
+          copyBtn.classList.remove('copied');
+        }, 1800);
+      };
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(email).then(done, function () { fallback(); done(); });
+      } else {
+        fallback(); done();
+      }
+    });
+  }
+
+  /* ---------- Contact form -> mailto ---------- */
+  var form = document.getElementById('contactForm');
+  if (form) {
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var name = form.name.value.trim();
+      var email = form.email.value.trim();
+      var message = form.message.value.trim();
+      var subject = encodeURIComponent('Portfolio inquiry from ' + name);
+      var body = encodeURIComponent(message + '\n\n— ' + name + ' (' + email + ')');
+      window.location.href = 'mailto:your-email@example.com?subject=' + subject + '&body=' + body;
+    });
+  }
+
+  /* ---------- Back to top ---------- */
+  var backToTop = document.getElementById('backToTop');
+  if (backToTop) {
+    window.addEventListener('scroll', function () {
+      backToTop.classList.toggle('visible', window.scrollY > 600);
+    }, { passive: true });
+    backToTop.addEventListener('click', function () {
+      window.scrollTo({ top: 0, behavior: prefersReducedMotion ? 'auto' : 'smooth' });
+    });
+  }
+})();
+</script>
+
+</body>
+</html>
